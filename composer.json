@@ -1,8 +1,8 @@
 {
     "name": "mythicalsystems/pterodactyl-php-sdk",
-    "description": "A comprehensive PHP SDK for interacting with the Pterodactyl Panel API, including both Application API and Client API",
+    "description": "Modern, comprehensive PHP SDK for Pterodactyl Panel API - Complete replacement for abandoned/outdated Pterodactyl SDKs with full Admin & Client API support",
     "type": "library",
-    "keywords": ["pterodactyl", "api", "sdk", "php", "panel", "game-server"],
+    "keywords": ["pterodactyl", "api", "sdk", "php", "panel", "game-server", "replacement", "modern", "comprehensive", "admin", "client"],
     "homepage": "https://github.com/MythicalLTD/Pterodactyl-PHP-SDK",
     "license": "MIT",
     "authors": [
@@ -35,6 +35,18 @@
         "psr-4": {
             "MythicalSystems\\SDK\\Pterodactyl\\Tests\\": "tests/"
         }
+    },
+    "replace": {
+        "hcgcloud/pterodactyl-sdk": "*",
+        "vexura/pterodactyl-sdk": "*",
+        "prepaid-host/pterodactyl-sdk": "*",
+        "fruitbytes/pterodactyl-sdk": "*",
+        "emeraldhost/pterodactyl-sdk": "*",
+        "sva-su/pterodactyl-php-sdk": "*",
+        "pjz9n/pterodactyl-php-sdk": "*",
+        "patryqhyper/pterodactyl-php-sdk": "*",
+        "the-systems/pterodactyl-sdk": "*",
+        "jeffwatsongh/pterodactyl-sdk": "*"
     },
     "config": {
         "sort-packages": true,
