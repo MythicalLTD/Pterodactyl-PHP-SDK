@@ -4,7 +4,7 @@ A comprehensive PHP SDK for interacting with the Pterodactyl Panel API, includin
 
 [![Latest Version](https://img.shields.io/packagist/v/mythicalsystems/pterodactyl-php-sdk.svg?style=flat-square)](https://packagist.org/packages/mythicalsystems/pterodactyl-php-sdk)
 [![Total Downloads](https://img.shields.io/packagist/dt/mythicalsystems/pterodactyl-php-sdk.svg?style=flat-square)](https://packagist.org/packages/mythicalsystems/pterodactyl-php-sdk)
-[![License](https://img.shields.io/packagist/l/mythicalsystems/pterodactyl-php-sdk.svg?style=flat-square)](https://github.com/MythicalSystems/Pterodactyl-PHP-SDK/blob/main/LICENSE)
+[![License](https://img.shields.io/packagist/l/mythicalsystems/pterodactyl-php-sdk.svg?style=flat-square)](https://github.com/mythicalltd/Pterodactyl-PHP-SDK/blob/main/LICENSE)
 
 ## Installation
 

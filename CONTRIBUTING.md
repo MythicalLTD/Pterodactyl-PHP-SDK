@@ -10,7 +10,7 @@ This project follows PSR-12 coding standards. Please ensure your code adheres to
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/MythicalSystems/Pterodactyl-PHP-SDK.git
+git clone https://github.com/mythicalltd/Pterodactyl-PHP-SDK.git
 cd Pterodactyl-PHP-SDK
 ```
 

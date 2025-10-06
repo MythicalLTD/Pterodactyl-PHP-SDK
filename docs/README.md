@@ -36,6 +36,6 @@ Welcome to the comprehensive documentation for the Pterodactyl PHP SDK. This doc
 
 ## Support
 
-- [GitHub Issues](https://github.com/MythicalSystems/Pterodactyl-PHP-SDK/issues)
-- [Documentation](https://github.com/MythicalSystems/Pterodactyl-PHP-SDK/tree/main/docs)
-- [Contributing](https://github.com/MythicalSystems/Pterodactyl-PHP-SDK/blob/main/CONTRIBUTING.md)
+- [GitHub Issues](https://github.com/mythicalltd/Pterodactyl-PHP-SDK/issues)
+- [Documentation](https://github.com/mythicalltd/Pterodactyl-PHP-SDK/tree/main/docs)
+- [Contributing](https://github.com/mythicalltd/Pterodactyl-PHP-SDK/blob/main/CONTRIBUTING.md)
