@@ -4,35 +4,40 @@ Welcome to the comprehensive documentation for the Pterodactyl PHP SDK. This doc
 
 ## Table of Contents
 
+## 📚 Documentation Structure
+
+### 🎛️ Panel API Documentation
+- **[Panel API Overview](panel/README.md)** - Complete Panel API documentation
+- **[Getting Started](panel/getting-started.md)** - Setup and basic usage
+- **[Authentication](panel/authentication.md)** - API key setup and security
+- **[Admin API](panel/admin-api.md)** - Administrative operations
+- **[Client API](panel/client-api.md)** - User operations
+- **[Error Handling](panel/error-handling.md)** - Exception management
+- **[Examples](panel/examples.md)** - Real-world scenarios
+
+### 🚀 Wings API Documentation
+- **[Wings API Overview](wings/README.md)** - Complete Wings API documentation
+- **[Getting Started](wings/getting-started.md)** - Setup and basic usage
+- **[Authentication](wings/authentication.md)** - Token setup and security
+- **[System Service](wings/system-service.md)** - System monitoring and stats
+- **[Server Service](wings/server-service.md)** - Server management operations
+- **[Docker Service](wings/docker-service.md)** - Container management
+- **[Transfer Service](wings/transfer-service.md)** - Server transfers
+- **[JWT Service](wings/jwt-service.md)** - Token generation
+- **[Error Handling](wings/error-handling.md)** - Exception management
+- **[Examples](wings/examples.md)** - Real-world scenarios
+
+### 📖 General Documentation
 - [Installation & Setup](installation.md)
 - [Quick Start Guide](quick-start.md)
-- [Authentication](authentication.md)
-- [Admin API](admin-api.md)
-  - [Server Management](admin-api.md#server-management)
-  - [User Management](admin-api.md#user-management)
-  - [Location Management](admin-api.md#location-management)
-  - [Node Management](admin-api.md#node-management)
-  - [Nest Management](admin-api.md#nest-management)
-- [Client API](client-api.md)
-  - [Server Management](client-api.md#server-management)
-  - [File Management](client-api.md#file-management)
-  - [Database Management](client-api.md#database-management)
-  - [Network Management](client-api.md#network-management)
-  - [Account Management](client-api.md#account-management)
-  - [SSH Key Management](client-api.md#ssh-key-management)
-  - [Activity Logs](client-api.md#activity-logs)
-  - [Schedules](client-api.md#schedules)
-  - [Startup Management](client-api.md#startup-management)
-- [Error Handling](error-handling.md)
-- [Examples](examples.md)
 - [API Reference](api-reference.md)
 
 ## Getting Started
 
 1. [Install the package](installation.md)
-2. [Set up authentication](authentication.md)
-3. [Follow the quick start guide](quick-start.md)
-4. [Explore the examples](examples.md)
+2. [Follow the quick start guide](quick-start.md)
+3. [Choose your API documentation](panel/README.md) or [Wings documentation](wings/README.md)
+4. [Explore examples](panel/examples.md) or [Wings examples](wings/examples.md)
 
 ## Support
 

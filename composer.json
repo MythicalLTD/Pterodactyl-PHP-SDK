@@ -1,8 +1,8 @@
 {
     "name": "mythicalsystems/pterodactyl-php-sdk",
-    "description": "Modern, comprehensive PHP SDK for Pterodactyl Panel API - Complete replacement for abandoned/outdated Pterodactyl SDKs with full Admin & Client API support",
+    "description": "Modern, comprehensive PHP SDK for Pterodactyl Panel API - Complete replacement for abandoned/outdated Pterodactyl SDKs with full Admin, Client & Wings API support",
     "type": "library",
-    "keywords": ["pterodactyl", "api", "sdk", "php", "panel", "game-server", "replacement", "modern", "comprehensive", "admin", "client"],
+    "keywords": ["pterodactyl", "api", "sdk", "php", "panel", "game-server", "replacement", "modern", "comprehensive", "admin", "client", "wings"],
     "homepage": "https://github.com/MythicalLTD/Pterodactyl-PHP-SDK",
     "license": "MIT",
     "authors": [

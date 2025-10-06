@@ -1,196 +1,108 @@
-# Pterodactyl PHP SDK
+# 🦕 Pterodactyl PHP SDK
 
-A comprehensive PHP SDK for interacting with the Pterodactyl Panel API, including both Application API and Client API.
+> **The most comprehensive PHP SDK for Pterodactyl Panel API**  
+> Complete replacement for abandoned/outdated Pterodactyl SDKs with full **Admin**, **Client** & **Wings** API support
 
 [![Latest Version](https://img.shields.io/packagist/v/mythicalsystems/pterodactyl-php-sdk.svg?style=flat-square)](https://packagist.org/packages/mythicalsystems/pterodactyl-php-sdk)
 [![Total Downloads](https://img.shields.io/packagist/dt/mythicalsystems/pterodactyl-php-sdk.svg?style=flat-square)](https://packagist.org/packages/mythicalsystems/pterodactyl-php-sdk)
 [![License](https://img.shields.io/packagist/l/mythicalsystems/pterodactyl-php-sdk.svg?style=flat-square)](https://github.com/mythicalltd/Pterodactyl-PHP-SDK/blob/main/LICENSE)
+[![PHP Version](https://img.shields.io/packagist/php-v/mythicalsystems/pterodactyl-php-sdk.svg?style=flat-square)](https://php.net)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mythicalltd/Pterodactyl-PHP-SDK/ci.yml?style=flat-square)](https://github.com/mythicalltd/Pterodactyl-PHP-SDK/actions)
 
-## Installation
-
-Install the package via Composer:
+## 🚀 Quick Start
 
 ```bash
 composer require mythicalsystems/pterodactyl-php-sdk
 ```
 
-## Quick Start
-
 ```php
 <?php
-
 use MythicalSystems\SDK\Pterodactyl\PterodactylSDK;
 
-// Initialize the SDK with both admin and client API keys
+// Initialize the SDK with all APIs
 $sdk = new PterodactylSDK(
-    'https://your-panel.com',
-    'your-admin-api-key',
-    'your-client-api-key'
+    'https://your-panel.com',           // Panel URL
+    'ptlc_admin_xxxxxxxxxxxxx',         // Admin API Key
+    'ptlc_client_xxxxxxxxxxxxx',        // Client API Key
+    'wings.example.com',                // Wings Host (optional)
+    8080,                               // Wings Port
+    'https',                            // Wings Protocol
+    'node-token-id.node-token-secret'   // Wings Token (node-token-id.node-token-secret)
 );
 
-// Use the admin API
-$servers = $sdk->admin()->servers()->list();
-
-// Use the client API
+// Use any API
+$servers = $sdk->admin()->servers()->listServers();
 $account = $sdk->client()->getAccountDetails();
+$system = $sdk->wings()->getSystem();
 ```
 
-## API Clients
+## 📚 Documentation
 
-### Admin API Only
+**👉 [View Complete Documentation](docs/)**
+
+### 🎛️ Panel API
+- **[Panel Overview](docs/panel/README.md)** - Complete Panel API documentation
+- **[Getting Started](docs/panel/getting-started.md)** - Setup and basic usage
+- **[Admin API](docs/panel/admin-api.md)** - Administrative operations
+- **[Client API](docs/panel/client-api.md)** - User operations
+
+### 🚀 Wings API
+- **[Wings Overview](docs/wings/README.md)** - Complete Wings API documentation
+- **[Getting Started](docs/wings/getting-started.md)** - Setup and basic usage
+- **[System Service](docs/wings/system-service.md)** - System monitoring
+- **[Server Service](docs/wings/server-service.md)** - Server management
+- **[Docker Service](docs/wings/docker-service.md)** - Container management
+- **[Transfer Service](docs/wings/transfer-service.md)** - Server transfers
+- **[JWT Service](docs/wings/jwt-service.md)** - Token generation
+
+### 📖 General
+- **[Installation](docs/installation.md)** - Package installation
+- **[Authentication](docs/authentication.md)** - API key setup
+- **[Error Handling](docs/error-handling.md)** - Exception management
+- **[Examples](docs/examples.md)** - Real-world scenarios
+
+
+## ✨ Features
+
+### 🎛️ **Admin API** - Panel Administration
+- **Server Management** - Create, update, delete, and manage servers
+- **User Management** - User accounts, permissions, and roles
+- **Node Management** - Server nodes and resource allocation
+- **Location Management** - Geographic server locations
+- **Nest & Egg Management** - Application templates and configurations
+
+### 👤 **Client API** - User Operations
+- **Server Control** - Power commands, console access, resource monitoring
+- **File Management** - Upload, download, edit, compress files
+- **Database Management** - Create, manage, and configure databases
+- **Backup System** - Automated backups and restoration
+- **Account Settings** - Profile management and API keys
+- **SSH Keys** - Secure server access management
+
+### 🚀 **Wings API** - Direct Daemon Access
+- **System Monitoring** - Real-time stats and resource usage
+- **Server Operations** - Direct server control and management
+- **Docker Integration** - Container and image management
+- **Transfer System** - Server migration between nodes
+- **JWT Tokens** - Secure authentication tokens
+
+
+## 🔧 API Clients
+
+### Individual API Access
 
 ```php
-use MythicalSystems\SDK\Pterodactyl\PterodactylSDK;
+// Admin API Only
+$admin = PterodactylSDK::adminOnly('https://panel.com', 'admin-key');
 
-$admin = PterodactylSDK::adminOnly('https://your-panel.com', 'your-admin-api-key');
+// Client API Only  
+$client = PterodactylSDK::clientOnly('https://panel.com', 'client-key');
+
+// Wings API Only
+$wings = PterodactylSDK::wingsOnly('wings.com', 8080, 'https', 'node-id.node-secret');
 ```
 
-### Client API Only
-
-```php
-use MythicalSystems\SDK\Pterodactyl\PterodactylSDK;
-
-$client = PterodactylSDK::clientOnly('https://your-panel.com', 'your-client-api-key');
-```
-
-
-## Features
-
-### Application API
-
-#### Server Management
-- Create, update, and delete servers
-- List servers with filtering and pagination
-- Get detailed server information
-- Manage server resources and configurations
-
-#### User Management
-- Create, update, and delete users
-- List users with filtering and pagination
-- Get detailed user information
-- Manage user permissions and roles
-
-#### Location Management
-- Create, update, and delete locations
-- List locations with filtering and pagination
-- Get detailed location information
-
-#### Node Management
-- Create, update, and delete nodes
-- List nodes with filtering and pagination
-- Get detailed node information
-- Manage node resources and configurations
-
-#### Nest Management
-- Create, update, and delete nests
-- List nests with filtering and pagination
-- Get detailed nest information
-
-#### Egg Management
-- Create, update, and delete eggs
-- List eggs with filtering and pagination
-- Get detailed egg information
-
-### Client API
-
-#### Server Management
-- List user's servers
-- Get server details
-- Get server resources
-- Send power signals (start, stop, restart, kill)
-- Send console commands
-
-#### File Management
-- List files in a directory
-- Get file contents
-- Write file contents
-- Rename files and directories
-- Copy files and directories
-- Delete files and directories
-- Compress files
-- Decompress archives
-
-#### Backup Management
-- List server backups
-- Create new backups
-- Get backup details
-- Download backups
-- Restore backups
-- Delete backups
-
-#### Server Transfer
-- Start server transfer
-- Get transfer status
-- Cancel transfer
-
-#### Server Installation
-- Get installation status
-- Start installation
-- Cancel installation
-
-#### WebSocket Support
-- Connect to server WebSocket
-- Send console commands
-- Send power signals
-- Subscribe to server stats
-- Unsubscribe from server stats
-
-#### Account Management
-- Get account details
-- Update email address
-- Update password
-- Enable/disable 2FA
-- Manage API keys
-
-#### SSH Key Management
-- List SSH keys
-- Get key details
-- Create new SSH keys
-- Delete SSH keys
-
-#### Activity Logs
-- Get server activity logs
-- Get user activity logs
-- Get server audit logs
-
-
-## Documentation
-
-Comprehensive documentation is available in the [`docs/`](docs/) directory:
-
-- [Installation & Setup](docs/installation.md)
-- [Quick Start Guide](docs/quick-start.md)
-- [Authentication](docs/authentication.md)
-- [Admin API](docs/admin-api.md) - Server, user, node, location, and nest management
-- [Client API](docs/client-api.md) - File, database, network, and account management
-- [Error Handling](docs/error-handling.md) - Comprehensive error handling guide
-- [Examples](docs/examples.md) - Real-world usage examples
-
-## API Reference
-
-### Admin API Resources
-
-- **Servers**: Create, update, delete, and manage servers
-- **Users**: Manage user accounts and permissions
-- **Locations**: Manage server locations
-- **Nodes**: Manage server nodes and resources
-- **Nests**: Manage application nests and eggs
-
-### Client API Resources
-
-- **Servers**: List user servers, send commands, manage resources
-- **Files**: File operations, directory management, compression
-- **Databases**: Database creation, management, and configuration
-- **Networks**: Allocation management and network configuration
-- **Account**: User account settings and API key management
-- **SSH Keys**: SSH key management for server access
-- **Activity**: Server and user activity logs
-- **Schedules**: Automated task scheduling
-- **Startup**: Server startup parameter management
-
-## Error Handling
-
-The SDK provides comprehensive error handling with specific exception types:
+## 🛡️ Error Handling
 
 ```php
 use MythicalSystems\SDK\Pterodactyl\Exceptions\AuthenticationException;
@@ -208,10 +120,20 @@ try {
 }
 ```
 
-## Contributing
+## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-## License
+## 📄 License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
+
+---
+
+<div align="center">
+
+**⭐ Star this repo if you find it useful!**
+
+[📖 Documentation](docs/) • [🐛 Issues](https://github.com/mythicalltd/Pterodactyl-PHP-SDK/issues) • [💬 Discussions](https://github.com/mythicalltd/Pterodactyl-PHP-SDK/discussions)
+
+</div>

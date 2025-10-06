@@ -31,28 +31,46 @@ namespace MythicalSystems\SDK\Pterodactyl;
 
 use MythicalSystems\SDK\Pterodactyl\Admin\PterodactylAdmin;
 use MythicalSystems\SDK\Pterodactyl\Client\PterodactylClient;
+use MythicalSystems\SDK\Pterodactyl\Wings\Wings;
 
 /**
  * Main SDK class for Pterodactyl Panel API
  * 
- * This class provides easy access to both Admin and Client APIs
+ * This class provides easy access to Admin, Client, and Wings APIs
  */
 class PterodactylSDK
 {
     private PterodactylAdmin $admin;
     private PterodactylClient $client;
+    private Wings $wings;
 
     /**
      * Create a new Pterodactyl SDK instance
      *
-     * @param string $baseUrl      The base URL of your Pterodactyl panel
-     * @param string $adminApiKey  Admin API key for admin operations
+     * @param string $baseUrl The base URL of your Pterodactyl panel
+     * @param string $adminApiKey Admin API key for admin operations
      * @param string $clientApiKey Client API key for client operations
+     * @param string|null $wingsHost Wings server hostname/IP (optional)
+     * @param int $wingsPort Wings server port (default: 8080)
+     * @param string $wingsProtocol Wings protocol (http/https, default: http)
+     * @param string $wingsToken Wings authentication token (format: node-token-id.node-token-secret) (optional)
      */
-    public function __construct(string $baseUrl, string $adminApiKey, string $clientApiKey)
-    {
+    public function __construct(
+        string $baseUrl, 
+        string $adminApiKey, 
+        string $clientApiKey,
+        ?string $wingsHost = null,
+        int $wingsPort = 8080,
+        string $wingsProtocol = 'http',
+        string $wingsToken = ''
+    ) {
         $this->admin = new PterodactylAdmin($baseUrl, $adminApiKey);
         $this->client = new PterodactylClient($baseUrl, $clientApiKey);
+        
+        // Initialize Wings if host is provided
+        if ($wingsHost) {
+            $this->wings = new Wings($wingsHost, $wingsPort, $wingsProtocol, $wingsToken);
+        }
     }
 
     /**
@@ -73,6 +91,20 @@ class PterodactylSDK
     public function client(): PterodactylClient
     {
         return $this->client;
+    }
+
+    /**
+     * Get the Wings API client
+     *
+     * @return Wings
+     * @throws \Exception If Wings is not initialized
+     */
+    public function wings(): Wings
+    {
+        if (!isset($this->wings)) {
+            throw new \Exception('Wings is not initialized. Provide wingsHost in constructor.');
+        }
+        return $this->wings;
     }
 
     /**
@@ -97,5 +129,23 @@ class PterodactylSDK
     public static function clientOnly(string $baseUrl, string $clientApiKey): PterodactylClient
     {
         return new PterodactylClient($baseUrl, $clientApiKey);
+    }
+
+    /**
+     * Create a Wings-only SDK instance
+     *
+     * @param string $wingsHost Wings server hostname/IP
+     * @param int $wingsPort Wings server port (default: 8080)
+     * @param string $wingsProtocol Wings protocol (http/https, default: http)
+     * @param string $wingsToken Wings authentication token (format: node-token-id.node-token-secret)
+     * @return Wings
+     */
+    public static function wingsOnly(
+        string $wingsHost, 
+        int $wingsPort = 8080, 
+        string $wingsProtocol = 'http', 
+        string $wingsToken = ''
+    ): Wings {
+        return new Wings($wingsHost, $wingsPort, $wingsProtocol, $wingsToken);
     }
 }

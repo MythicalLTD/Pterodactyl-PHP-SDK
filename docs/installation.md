@@ -42,5 +42,6 @@ if (class_exists('MythicalSystems\SDK\Pterodactyl\PterodactylSDK')) {
 ## Next Steps
 
 After installation, proceed to:
-- [Authentication Setup](authentication.md)
 - [Quick Start Guide](quick-start.md)
+- [Panel API Documentation](panel/README.md)
+- [Wings API Documentation](wings/README.md)

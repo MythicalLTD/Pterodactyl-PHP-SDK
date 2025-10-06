@@ -164,7 +164,7 @@ $account = $client->getAccountDetails();
 
 Now that you have the basics working, explore:
 
-- [Admin API Documentation](admin-api.md) - For administrative operations
-- [Client API Documentation](client-api.md) - For user operations
-- [Examples](examples.md) - More detailed examples
-- [Error Handling](error-handling.md) - Comprehensive error handling guide
+- [Panel API Documentation](panel/README.md) - Complete Panel API documentation
+- [Wings API Documentation](wings/README.md) - Complete Wings API documentation
+- [Panel Examples](panel/examples.md) - Panel API usage examples
+- [Wings Examples](wings/examples.md) - Wings API usage examples
